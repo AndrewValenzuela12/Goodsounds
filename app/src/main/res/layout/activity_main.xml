@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#383F51"
+    tools:context="com.example.andrewvalenzuela.goodsounds.MainActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="... or shake for new music!"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="24sp"
+        android:background="#07000000"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/homepage_myList_button"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="20dp"
+        android:text="My List"
+        android:fontFamily="sans-serif"
+        android:textStyle="italic"
+        android:textColor="#000000"
+        android:background="@android:color/darker_gray"
+        android:visibility="visible" />
+</RelativeLayout>
