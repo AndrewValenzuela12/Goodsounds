@@ -13,7 +13,6 @@
         android:id="@+id/selected_imageView"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_below="@+id/floatingActionButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="42dp"
         android:scaleType="fitXY"
@@ -69,6 +68,7 @@
         android:inputType="textMultiLine"
         android:selectAllOnFocus="false"
         android:singleLine="false"
+        android:maxLines="5"
         android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
         android:textStyle="italic" />

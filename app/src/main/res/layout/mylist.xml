@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#383F51"
     tools:context="com.example.andrewvalenzuela.goodsounds.MainActivity">
-    >
+
     <ImageView
         android:id="@+id/albumInList"
         android:layout_width="120dp"
@@ -48,7 +48,7 @@
             android:layout_marginTop="2dp"
             android:maxLines="2"
             android:text="Artist"
-            android:textSize="19sp" />
+            android:textSize="15sp" />
 
         <RatingBar
             android:id="@+id/listratingBar"
@@ -56,13 +56,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/artist_list_title"
-            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginTop="2dp"
             android:numStars="5"
             android:stepSize=".5" />
 
-
-
+        <Button
+            android:id="@+id/shareButton"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/album_list_title"
+            android:layout_toRightOf="@id/album_list_title"
+            android:text="Share" />
 
 
     </RelativeLayout>
