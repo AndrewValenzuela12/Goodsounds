@@ -15,12 +15,12 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:background="#07000000"
         android:text="... or shake for new music!"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/darker_gray"
         android:textSize="24sp"
-        android:background="#07000000"
         android:textStyle="italic" />
 
     <Button
@@ -49,7 +49,7 @@
         android:layout_marginTop="22dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:text="Search for an album" />
 
     <Button
         android:id="@+id/searchButton"
@@ -57,5 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/searchEditText"
         android:layout_alignEnd="@+id/textView"
-        android:text="Search" />
+        android:text="Search"
+        android:onClick="onClickSearch" />
+
 </RelativeLayout>
