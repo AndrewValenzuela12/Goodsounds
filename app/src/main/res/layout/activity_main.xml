@@ -59,7 +59,8 @@
         android:layout_alignBottom="@+id/searchEditText"
         android:layout_alignEnd="@+id/homepage_myList_button"
         android:layout_marginEnd="15dp"
-        android:text="Search" />
+        android:text="Search"
+        android:onClick="onClickSearch"/>
 
     <ListView
         android:id="@+id/search_list_view"
