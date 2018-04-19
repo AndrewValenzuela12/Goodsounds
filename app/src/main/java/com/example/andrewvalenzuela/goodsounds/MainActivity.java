@@ -3,6 +3,10 @@ package com.example.andrewvalenzuela.goodsounds;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +14,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -31,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String API_KEY = "e1e823dc0969cf6407878c51165f40f5";
 
+
+    // The following are used for the shake detection
+    private SensorManager mSensorManager;
+    private ShakeEventListener mSensorListener;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +53,36 @@ public class MainActivity extends AppCompatActivity {
         mSearchEditText = findViewById(R.id.searchEditText);
         mSearchButton = findViewById(R.id.searchButton);
         mShakeTextView = findViewById(R.id.textView);
+
+
+        // shake detector initialization
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mSensorListener = new ShakeEventListener();
+        mSensorListener.setOnShakeListener(new ShakeEventListener.OnShakeListener() {
+            public void onShake() {
+                Toast.makeText(MainActivity.this, "Shake!", Toast.LENGTH_SHORT).show();
+
+                // whatever we want to do when we detect a shake
+
+            }
+        });
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mSensorManager.registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    protected void onPause() {
+        mSensorManager.unregisterListener(mSensorListener);
+        super.onPause();
+    }
+
+
+
+
 
     public void onClickSearch(View view) {
         fetchResults(mSearchEditText.getText().toString());
