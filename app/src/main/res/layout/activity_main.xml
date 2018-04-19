@@ -13,21 +13,22 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_alignBaseline="@+id/homepage_myList_button"
+        android:layout_alignBottom="@+id/homepage_myList_button"
+        android:layout_alignEnd="@+id/searchEditText"
         android:background="#07000000"
         android:text="... or shake for new music!"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/darker_gray"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="italic" />
 
     <Button
         android:id="@+id/homepage_myList_button"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="17dp"
@@ -49,15 +50,22 @@
         android:layout_marginTop="22dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Search for an album" />
+        android:text="Name" />
 
     <Button
         android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/searchEditText"
-        android:layout_alignEnd="@+id/textView"
-        android:text="Search"
-        android:onClick="onClickSearch" />
+        android:layout_alignEnd="@+id/homepage_myList_button"
+        android:layout_marginEnd="15dp"
+        android:text="Search" />
 
+    <ListView
+        android:id="@+id/search_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/searchEditText"
+        android:layout_marginTop="11dp" />
 </RelativeLayout>
