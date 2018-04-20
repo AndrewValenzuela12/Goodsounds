@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        albumList.add(new Album("hi", "https://lastfm-img2.akamaized.net/i/u/174s/7c9c4d1009514b178c82f2201e3a1fce.png","name"));
         mListView = findViewById(R.id.search_list_view);
         mAdapter = new AlbumAdapter(mContext, albumList);
         mListView.setAdapter(mAdapter);
@@ -126,10 +128,11 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         //mShakeTextView.setText("Response: " + albumList.toString());
-                        albumList = Album.getAlbumList(array, mContext);
-                        //mAdapter = new AlbumAdapter(mContext, albumList);
+                        albumList.clear();
+                        albumList.addAll(Album.getAlbumList(array, mContext));
+
                         mShakeTextView.setText("Size: " + albumList.size());
-                        mAdapter.notifyDataSetChanged();
+                        ((BaseAdapter) mListView.getAdapter()).notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
 
