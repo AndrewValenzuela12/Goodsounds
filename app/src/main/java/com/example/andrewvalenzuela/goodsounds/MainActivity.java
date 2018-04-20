@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        //put search results into ListView
         mListView = findViewById(R.id.search_list_view);
         mAdapter = new AlbumAdapter(mContext, albumList);
         mListView.setAdapter(mAdapter);
@@ -88,10 +90,6 @@ public class MainActivity extends AppCompatActivity {
         mSensorManager.unregisterListener(mSensorListener);
         super.onPause();
     }
-
-
-
-
 
     public void onClickSearch(View view) {
         mShakeTextView.setText("Processing...");
@@ -114,8 +112,6 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-
-
                         //mShakeTextView.setText("Response: " + response.toString());
                         JSONArray array = null;
                         try{
@@ -125,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                             ex.printStackTrace();
                         }
 
-                        //mShakeTextView.setText("Response: " + albumList.toString());
+                       // mShakeTextView.setText("Response: " + albumList.toString());
                         albumList = Album.getAlbumList(array, mContext);
                         //mAdapter = new AlbumAdapter(mContext, albumList);
                         mShakeTextView.setText("Size: " + albumList.size());
@@ -139,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
                         mShakeTextView.setText("Response: " + error.toString());
                     }
                 });
+
         queue.add(jsonObjectRequest);
     }
 
