@@ -24,7 +24,12 @@ public class Album {
 
     // constructor
     // default
-
+    public Album(String title, String imageUrl, String artist) {
+        this.title = title;
+        this.imageUrl = imageUrl;
+        this.artist = artist;
+        this.rating = 0;
+    }
     // method
     // static methods that read the json file in and load into Recipe
 
@@ -43,7 +48,7 @@ public class Album {
 
             // for loop to go through each recipe in your recipes array
             for (int i = 0; i < albums.length(); i++) {
-                Album album = new Album();
+                Album album = new Album("","","");
                 album.title = albums.getJSONObject(i).getString("name");
 
                 try {
