@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private Context mContext;
     private ListView mListView;
     private AlbumAdapter mAdapter;
+    private Album selectedAlbum;
+    private View selectedItem;
     public ArrayList<Album> albumList = new ArrayList<>();
 
     public static final String API_KEY = "e1e823dc0969cf6407878c51165f40f5";
@@ -70,13 +73,33 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Shake!", Toast.LENGTH_SHORT).show();
 
                 // whatever we want to do when we detect a shake
-
             }
         });
         albumList.add(new Album("hi", "https://lastfm-img2.akamaized.net/i/u/174s/7c9c4d1009514b178c82f2201e3a1fce.png","name"));
         mListView = findViewById(R.id.search_list_view);
         mAdapter = new AlbumAdapter(mContext, albumList);
         mListView.setAdapter(mAdapter);
+
+        mListView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                selectedAlbum = albumList.get(position);
+                selectedItem = mListView.getChildAt(position - mListView.getFirstVisiblePosition());
+                // create my intent package
+                // add all the information needed for detail page
+                // startActivity with that intent
+
+                // explicit
+                Intent detailIntent = new Intent(mContext, AlbumDetailActivity.class);
+                // put title and and instruction URL
+                detailIntent.putExtra("album_title", selectedAlbum.title);
+                detailIntent.putExtra("album_artist", selectedAlbum.artist);
+                detailIntent.putExtra("album_url", selectedAlbum.imageUrl);
+
+                startActivityForResult(detailIntent, 1);;
+            }
+        });
     }
 
     @Override
@@ -144,5 +167,4 @@ public class MainActivity extends AppCompatActivity {
                 });
         queue.add(jsonObjectRequest);
     }
-
 }
