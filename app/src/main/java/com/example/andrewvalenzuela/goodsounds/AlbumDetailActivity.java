@@ -54,4 +54,8 @@ public class AlbumDetailActivity extends AppCompatActivity {
         myArtistTextView.setText(album_artist);
 
     }
+
+    public void onClickBack(View view) {
+        this.finish();
+    }
 }

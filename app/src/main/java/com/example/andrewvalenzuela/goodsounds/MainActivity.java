@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 // whatever we want to do when we detect a shake
             }
         });
-        albumList.add(new Album("hi", "https://lastfm-img2.akamaized.net/i/u/174s/7c9c4d1009514b178c82f2201e3a1fce.png","name"));
+        //albumList.add(new Album("hi", "https://lastfm-img2.akamaized.net/i/u/174s/7c9c4d1009514b178c82f2201e3a1fce.png","name"));
         mListView = findViewById(R.id.search_list_view);
         mAdapter = new AlbumAdapter(mContext, albumList);
         mListView.setAdapter(mAdapter);
