@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
+
                 selectedAlbum = albumList.get(position);
                 selectedItem = mListView.getChildAt(position - mListView.getFirstVisiblePosition());
                 // create my intent package
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 detailIntent.putExtra("album_artist", selectedAlbum.artist);
                 detailIntent.putExtra("album_url", selectedAlbum.imageUrl);
 
-                startActivityForResult(detailIntent, 1);;
+                startActivity(detailIntent);
             }
         });
     }
@@ -113,9 +114,6 @@ public class MainActivity extends AppCompatActivity {
         mSensorManager.unregisterListener(mSensorListener);
         super.onPause();
     }
-
-
-
 
 
     public void onClickSearch(View view) {
