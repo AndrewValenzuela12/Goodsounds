@@ -69,7 +69,8 @@
         android:singleLine="false"
         android:maxLines="5"
         android:textAlignment="center"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
         android:textStyle="italic" />
 
     <Button
