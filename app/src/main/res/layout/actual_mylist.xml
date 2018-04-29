@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:onClick="onClickBackHome"
         app:srcCompat="?android:attr/actionModeCloseDrawable" />
 
 
