@@ -1,10 +1,16 @@
 package com.example.andrewvalenzuela.goodsounds;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -12,6 +18,8 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import static android.content.Context.NOTIFICATION_SERVICE;
 
 /**
  * Created by AndrewValenzuela on 4/28/18.
@@ -68,6 +76,7 @@ public class AlbumAdapter2 extends BaseAdapter {
             holder.thumbnailImageView = convertView.findViewById(R.id.albumInList);
             holder.artistTextView = convertView.findViewById(R.id.artist_list_title);
             holder.ratedRatingBar = convertView.findViewById(R.id.listratingBar);
+            holder.shareButton = convertView.findViewById(R.id.shareButton);
 
             //add the holder to the view
             convertView.setTag(holder);
@@ -80,6 +89,7 @@ public class AlbumAdapter2 extends BaseAdapter {
         ImageView thumbnailImageView = holder.thumbnailImageView;
         TextView artistTextView = holder.artistTextView;
         RatingBar ratedRatingBar = holder.ratedRatingBar;
+        Button shareButton = holder.shareButton;
 
         //get corresponding recipe for each row
         final Album album = (Album)getItem(position);
@@ -93,6 +103,13 @@ public class AlbumAdapter2 extends BaseAdapter {
         //if statement look at the load method
         Picasso.with(myContext).load(album.imageUrl).into(thumbnailImageView);
 
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchActivity(album.title, album.artist, album.comment, album.rating);
+            }
+        });
+
         return convertView;
     }
 
@@ -105,11 +122,22 @@ public class AlbumAdapter2 extends BaseAdapter {
         public ImageView thumbnailImageView;
         public TextView artistTextView;
         public RatingBar ratedRatingBar;
+        public Button shareButton;
     }
 
 
     //intent is used to pass information between activities
     // intent -> package
     // sender, receiver
+    private void launchActivity(String albumTitle, String artist, String comments, Integer rating) {
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        String ratingText = rating + " stars.";
+        String text = "I rated the album " + albumTitle + " by " + artist + " " + ratingText + " This is what I thought about it: " + comments;
+        shareIntent.putExtra(Intent.EXTRA_TEXT, text);
+        myContext.startActivity(shareIntent);
+    }
+
 
 }
