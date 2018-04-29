@@ -131,6 +131,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     //of the table your query returned
                     Album object = new Album(cursor.getString(1),
                             cursor.getString(3),cursor.getString(2));
+                    Log.d("Album Rating", Integer.toString(Integer.parseInt(cursor.getString(4))));
                     object.rating = Integer.parseInt(cursor.getString(4));
                     object.comment = cursor.getString(5);
 

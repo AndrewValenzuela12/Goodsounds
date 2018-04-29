@@ -33,6 +33,8 @@ public class AlbumDetailActivity extends AppCompatActivity {
     public String album_title;
     public String album_artist;
     public String album_url;
+    public int album_rating;
+    public String album_comment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,10 @@ public class AlbumDetailActivity extends AppCompatActivity {
         album_title = this.getIntent().getExtras().getString("album_title");
         album_artist = this.getIntent().getExtras().getString("album_artist");
         album_url = this.getIntent().getExtras().getString("album_url");
+        album_rating = this.getIntent().getExtras().getInt("album_rating");
+        album_comment = this.getIntent().getExtras().getString("album_comment");
+
+        myAddButton.setText(this.getIntent().getExtras().getString("btn_name"));
 
         Picasso.with(myContext).load(album_url).into(myImageView);
         myTitleTextView.setText(album_title);
@@ -66,7 +72,7 @@ public class AlbumDetailActivity extends AppCompatActivity {
     }
 
     public void onClickAdd(View view) {
-        boolean isInserted = myDb.insertData(album_title, album_artist, album_url, myRatingBar.getNumStars(), myCommentBox.getText().toString());
+        boolean isInserted = myDb.insertData(album_title, album_artist, album_url, Math.round(myRatingBar.getRating()), myCommentBox.getText().toString());
         if (isInserted == true){
             // I inserted correctly
             Toast.makeText(AlbumDetailActivity.this, "New album added!", Toast.LENGTH_LONG).show();
