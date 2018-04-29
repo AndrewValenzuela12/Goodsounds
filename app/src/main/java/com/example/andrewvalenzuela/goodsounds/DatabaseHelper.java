@@ -4,7 +4,11 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+import java.util.ArrayList;
 
 /**
  * Created by ellenshin on 4/28/18.
@@ -101,6 +105,52 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Integer deleteData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME, "ID = ?",new String[] {id});
+    }
+
+    public ArrayList<Album> getAllObjects()
+    {
+        // Select All Query
+        //String selectQuery = "SELECT * FROM SOME_TABLE";
+        // Get the isntance of the database
+        SQLiteDatabase db = this.getWritableDatabase();
+        //get the cursor you're going to use
+        Cursor cursor = db.rawQuery("select * from " + TABLE_NAME, null);
+
+        //this is optional - if you want to return one object
+        //you don't need a list
+        ArrayList<Album> objectList = new ArrayList<Album>();
+
+        //you should always use the try catch statement incase
+        //something goes wrong when trying to read the data
+        try
+        {
+            // looping through all rows and adding to list
+            if (cursor.moveToFirst()) {
+                do {
+                    //the .getString(int x) method of the cursor returns the column
+                    //of the table your query returned
+                    Album object = new Album(cursor.getString(1),
+                            cursor.getString(3),cursor.getString(2));
+                    object.rating = Integer.parseInt(cursor.getString(4));
+                    object.comment = cursor.getString(5);
+
+                    // Adding contact to list
+                    objectList.add(object);
+                } while (cursor.moveToNext());
+            }
+        }
+        catch (SQLiteException e)
+        {
+            Log.d("SQL Error", e.getMessage());
+            return null;
+        }
+        finally
+        {
+            //release all your resources
+            cursor.close();
+            db.close();
+        }
+        return objectList;
     }
 
 }

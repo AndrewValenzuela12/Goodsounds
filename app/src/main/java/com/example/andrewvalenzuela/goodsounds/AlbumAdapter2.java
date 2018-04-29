@@ -107,6 +107,7 @@ public class AlbumAdapter2 extends BaseAdapter {
         public RatingBar ratedRatingBar;
     }
 
+
     //intent is used to pass information between activities
     // intent -> package
     // sender, receiver
