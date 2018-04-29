@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AlbumDetailActivity"></activity>
+        <activity android:name=".RandomAlbumActivity"></activity>
     </application>
 
 </manifest>
