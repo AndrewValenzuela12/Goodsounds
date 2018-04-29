@@ -22,7 +22,7 @@ public class Album {
     public String artist;
     public int rating;
     public String comment;
-    public int id;
+    public String id;
 
     // constructor
     // default
@@ -32,7 +32,7 @@ public class Album {
         this.artist = artist;
         this.rating = 0;
         this.comment = "";
-        this.id = 0;
+        this.id = "";
     }
     // method
     // static methods that read the json file in and load into Recipe

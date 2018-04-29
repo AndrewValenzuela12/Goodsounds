@@ -89,7 +89,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COL_4, rating);
         cv.put(COL_5, comment);
 
-        db.update(TABLE_NAME, cv, "ID = ?", new String[]{id});
+        int s = db.update(TABLE_NAME, cv, "ID="+id, null);
+        Log.i("db update ", "s= " +s);
         return true;
     }
     // show rows
@@ -118,7 +119,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //this is optional - if you want to return one object
         //you don't need a list
-        ArrayList<Album> objectList = new ArrayList<Album>();
+        ArrayList<Album> objectList = new ArrayList<>();
 
         //you should always use the try catch statement incase
         //something goes wrong when trying to read the data
@@ -134,7 +135,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     Log.d("Album Rating", Integer.toString(Integer.parseInt(cursor.getString(4))));
                     object.rating = Integer.parseInt(cursor.getString(4));
                     object.comment = cursor.getString(5);
-                    object.id = Integer.parseInt(cursor.getString(0));
+                    object.id = cursor.getString(0);
 
                     // Adding contact to list
                     objectList.add(object);

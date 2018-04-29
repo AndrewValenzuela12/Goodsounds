@@ -36,7 +36,7 @@ public class AlbumDetailActivity extends AppCompatActivity {
     public int album_rating;
     public String album_comment;
     public String btn_name;
-    public int album_id;
+    public String album_id;
     public int album_position;
 
     @Override
@@ -60,7 +60,7 @@ public class AlbumDetailActivity extends AppCompatActivity {
         album_rating = this.getIntent().getExtras().getInt("album_rating");
         album_comment = this.getIntent().getExtras().getString("album_comment");
         btn_name = this.getIntent().getExtras().getString("btn_name");
-        album_id = this.getIntent().getExtras().getInt("album_rating");
+        album_id = this.getIntent().getExtras().getString("album_id");
         album_position = this.getIntent().getExtras().getInt("album_position");
 
         myAddButton.setText(btn_name);
@@ -89,7 +89,7 @@ public class AlbumDetailActivity extends AppCompatActivity {
                 Toast.makeText(AlbumDetailActivity.this, "There was a problem :(", Toast.LENGTH_LONG).show();
             }
         } else {
-            boolean isUpdated = myDb.updateData(Integer.toString(album_id), album_title, album_artist, album_url, Math.round(myRatingBar.getRating()), myCommentBox.getText().toString());
+            boolean isUpdated = myDb.updateData(album_id, album_title, album_artist, album_url, Math.round(myRatingBar.getRating()), myCommentBox.getText().toString());
             if (isUpdated == true){
                 // I inserted correctly
                 Toast.makeText(AlbumDetailActivity.this, "Updated!", Toast.LENGTH_LONG).show();

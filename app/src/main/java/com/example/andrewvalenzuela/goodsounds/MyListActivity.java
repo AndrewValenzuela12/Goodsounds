@@ -30,6 +30,7 @@ public class MyListActivity extends AppCompatActivity {
     DatabaseHelper myDb;
     public ArrayList<Album> myAlbums;
     private View selectedItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +90,7 @@ public class MyListActivity extends AppCompatActivity {
                 changedAlbum.rating = data.getIntExtra("new_rating", 0);
                 changedAlbum.comment = data.getStringExtra("new_comment");
                 myAlbums.set(position, changedAlbum);
+                myAlbums = myDb.getAllObjects();
                 ((BaseAdapter) mFinalListView.getAdapter()).notifyDataSetChanged();
             }
         }
