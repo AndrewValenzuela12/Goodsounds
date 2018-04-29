@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         mListView = findViewById(R.id.search_list_view);
         mAdapter = new AlbumAdapter(mContext, albumList);
         mListView.setAdapter(mAdapter);
+
         mListView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
@@ -99,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 detailIntent.putExtra("album_artist", selectedAlbum.artist);
                 detailIntent.putExtra("album_url", selectedAlbum.imageUrl);
 
-                startActivityForResult(detailIntent, 1);;
+                startActivity(detailIntent);
             }
         });
     }
@@ -123,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onClickSearch(View view) {
-        mShakeTextView.setText("Processing...");
+        mShakeTextView.setText("Searching...");
         fetchResults(mSearchEditText.getText().toString());
 
     }
@@ -158,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                         albumList.clear();
                         albumList.addAll(Album.getAlbumList(array, mContext));
 
-                        mShakeTextView.setText("Size: " + albumList.size());
+                        mShakeTextView.setText("... or shake for new music!");
                         ((BaseAdapter) mListView.getAdapter()).notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
