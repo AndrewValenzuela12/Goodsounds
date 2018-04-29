@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onClickSearch(View view) {
-        mShakeTextView.setText("Processing...");
+        mShakeTextView.setText("Searching...");
         fetchResults(mSearchEditText.getText().toString());
 
     }
@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
                         albumList.clear();
                         albumList.addAll(Album.getAlbumList(array, mContext));
 
-                        mShakeTextView.setText("Size: " + albumList.size());
+                        mShakeTextView.setText("... or shake for new music!");
                         ((BaseAdapter) mListView.getAdapter()).notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
