@@ -87,7 +87,7 @@ public class AlbumAdapter2 extends BaseAdapter {
         //update the row view's textviews ad imageView to display the information
         titleTextView.setText(album.title);
         artistTextView.setText(album.artist);
-        ratedRatingBar.setNumStars(album.rating);
+        ratedRatingBar.setRating(album.rating);
 
         //use Picasso library to load image from the image url;
         //if statement look at the load method
