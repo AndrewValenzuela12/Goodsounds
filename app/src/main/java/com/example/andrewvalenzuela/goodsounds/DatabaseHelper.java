@@ -134,6 +134,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     Log.d("Album Rating", Integer.toString(Integer.parseInt(cursor.getString(4))));
                     object.rating = Integer.parseInt(cursor.getString(4));
                     object.comment = cursor.getString(5);
+                    object.id = Integer.parseInt(cursor.getString(0));
 
                     // Adding contact to list
                     objectList.add(object);

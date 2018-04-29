@@ -35,6 +35,9 @@ public class AlbumDetailActivity extends AppCompatActivity {
     public String album_url;
     public int album_rating;
     public String album_comment;
+    public String btn_name;
+    public int album_id;
+    public int album_position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,13 +59,17 @@ public class AlbumDetailActivity extends AppCompatActivity {
         album_url = this.getIntent().getExtras().getString("album_url");
         album_rating = this.getIntent().getExtras().getInt("album_rating");
         album_comment = this.getIntent().getExtras().getString("album_comment");
+        btn_name = this.getIntent().getExtras().getString("btn_name");
+        album_id = this.getIntent().getExtras().getInt("album_rating");
+        album_position = this.getIntent().getExtras().getInt("album_position");
 
-        myAddButton.setText(this.getIntent().getExtras().getString("btn_name"));
+        myAddButton.setText(btn_name);
 
         Picasso.with(myContext).load(album_url).into(myImageView);
         myTitleTextView.setText(album_title);
         myArtistTextView.setText(album_artist);
-
+        myRatingBar.setRating(album_rating);
+        myCommentBox.setText(album_comment);
 
 
     }
@@ -72,13 +79,30 @@ public class AlbumDetailActivity extends AppCompatActivity {
     }
 
     public void onClickAdd(View view) {
-        boolean isInserted = myDb.insertData(album_title, album_artist, album_url, Math.round(myRatingBar.getRating()), myCommentBox.getText().toString());
-        if (isInserted == true){
-            // I inserted correctly
-            Toast.makeText(AlbumDetailActivity.this, "New album added!", Toast.LENGTH_LONG).show();
-        }
-        else{
-            Toast.makeText(AlbumDetailActivity.this, "There was a problem :(", Toast.LENGTH_LONG).show();
+        if (btn_name.equals("ADD")) {
+            boolean isInserted = myDb.insertData(album_title, album_artist, album_url, Math.round(myRatingBar.getRating()), myCommentBox.getText().toString());
+            if (isInserted == true){
+                // I inserted correctly
+                Toast.makeText(AlbumDetailActivity.this, "New album added!", Toast.LENGTH_LONG).show();
+            }
+            else{
+                Toast.makeText(AlbumDetailActivity.this, "There was a problem :(", Toast.LENGTH_LONG).show();
+            }
+        } else {
+            boolean isUpdated = myDb.updateData(Integer.toString(album_id), album_title, album_artist, album_url, Math.round(myRatingBar.getRating()), myCommentBox.getText().toString());
+            if (isUpdated == true){
+                // I inserted correctly
+                Toast.makeText(AlbumDetailActivity.this, "Updated!", Toast.LENGTH_LONG).show();
+                Intent updateIntent = new Intent();
+                updateIntent.putExtra("position", album_position);
+                updateIntent.putExtra("new_rating", Math.round(myRatingBar.getRating()));
+                updateIntent.putExtra("new_comment", myCommentBox.getText().toString());
+                setResult(RESULT_OK, updateIntent);
+                finish();
+            }
+            else{
+                Toast.makeText(AlbumDetailActivity.this, "There was a problem :(", Toast.LENGTH_LONG).show();
+            }
         }
         this.finish();
     }

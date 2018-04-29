@@ -74,6 +74,7 @@
             android:layout_height="40dp"
             android:layout_below="@id/album_list_title"
             android:layout_toRightOf="@id/listratingBar"
+            android:focusable="false"
             android:text="Share" />
 
 
