@@ -94,6 +94,7 @@ public class AlbumAdapter extends BaseAdapter {
         artistTextView.setText(album.artist);
 
         //use Picasso library to load image from the image url;
+        //if statement look at the load method
         Picasso.with(myContext).load(album.imageUrl).into(thumbnailImageView);
 
         return convertView;
