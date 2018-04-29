@@ -109,6 +109,9 @@ public class MainActivity extends AppCompatActivity {
                 detailIntent.putExtra("album_title", selectedAlbum.title);
                 detailIntent.putExtra("album_artist", selectedAlbum.artist);
                 detailIntent.putExtra("album_url", selectedAlbum.imageUrl);
+                detailIntent.putExtra("album_rating", selectedAlbum.rating);
+                detailIntent.putExtra("album_comment", selectedAlbum.comment);
+                detailIntent.putExtra("btn_name", "ADD");
 
                 startActivity(detailIntent);
             }
