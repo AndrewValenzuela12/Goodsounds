@@ -28,8 +28,8 @@
         android:layout_marginTop="20dp"
         android:textSize="27sp"
         android:textColor="@android:color/darker_gray"
-        android:textAlignment="center"
         android:textStyle="italic"
+        android:textAlignment="center"
         android:text="Album Title" />
 
     <TextView
@@ -52,10 +52,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/selected_ArtistName"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
         android:numStars="5"
         android:stepSize="1"
-        />
+        android:theme="@style/RatingBar"/>
 
     <EditText
         android:id="@+id/commentbox"
@@ -76,12 +75,10 @@
     <Button
         android:id="@+id/addtoList"
         android:layout_below="@+id/commentbox"
+        android:layout_marginTop="30dp"
         android:layout_width="100dp"
-        android:layout_height="45dp"
-        android:layout_alignParentBottom="true"
+        android:layout_height="35dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
-        android:layout_marginBottom="35dp"
         android:fontFamily="sans-serif"
         android:textStyle="italic"
         android:textColor="#000000"

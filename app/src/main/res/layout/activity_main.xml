@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#383F51"
+    android:background="#FFFFFF"
     tools:context="com.example.andrewvalenzuela.goodsounds.MainActivity">
 
 
@@ -16,7 +16,6 @@
         android:layout_alignBaseline="@+id/homepage_myList_button"
         android:layout_alignBottom="@+id/homepage_myList_button"
         android:layout_alignEnd="@+id/searchEditText"
-        android:background="#07000000"
         android:text="... or shake for new music!"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -52,6 +51,9 @@
         android:ems="10"
         android:inputType="textPersonName"
         tools:hint="e.g. Kendrick Lamar"
+        android:textCursorDrawable="@null"
+        android:textColor="#000000"
+        android:backgroundTint="#000000"
         />
 
     <Button
@@ -70,5 +72,5 @@
         android:layout_height="430dp"
         android:layout_alignStart="@id/searchEditText"
         android:layout_below="@+id/searchEditText"
-        android:layout_marginTop="11dp" />
+        android:layout_marginTop="0dp" />
 </RelativeLayout>

@@ -26,4 +26,16 @@
         android:id="@+id/final_mylist_view"
         />
 
+    <TextView
+        android:id="@+id/myList_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/backtoHome_bttn1"
+        android:layout_marginBottom="10dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="italic"
+        android:text="~ My Music ~" />
+
 </RelativeLayout>
