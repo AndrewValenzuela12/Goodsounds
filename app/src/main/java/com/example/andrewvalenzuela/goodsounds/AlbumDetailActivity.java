@@ -66,8 +66,7 @@ public class AlbumDetailActivity extends AppCompatActivity {
     }
 
     public void onClickAdd(View view) {
-        boolean isInserted = myDb.insertData(album_title,
-                album_artist, album_url, myRatingBar.getNumStars(), myCommentBox.getText().toString());
+        boolean isInserted = myDb.insertData(album_title, album_artist, album_url, myRatingBar.getNumStars(), myCommentBox.getText().toString());
         if (isInserted == true){
             // I inserted correctly
             Toast.makeText(AlbumDetailActivity.this, "New album added!", Toast.LENGTH_LONG).show();

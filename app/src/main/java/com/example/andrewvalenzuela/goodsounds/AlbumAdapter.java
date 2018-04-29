@@ -40,7 +40,6 @@ public class AlbumAdapter extends BaseAdapter {
 
     //methods
     //a list of methods we need to override
-
     //gives ypu the number of Albums in the data source
 
     @Override
