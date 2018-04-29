@@ -68,6 +68,7 @@ public class AlbumAdapter2 extends BaseAdapter {
             holder.thumbnailImageView = convertView.findViewById(R.id.albumInList);
             holder.artistTextView = convertView.findViewById(R.id.artist_list_title);
             holder.ratedRatingBar = convertView.findViewById(R.id.listratingBar);
+
             //add the holder to the view
             convertView.setTag(holder);
         } else {

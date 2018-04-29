@@ -21,6 +21,7 @@ public class Album {
     public String imageUrl;
     public String artist;
     public int rating;
+    public String comment;
 
     // constructor
     // default
@@ -29,6 +30,7 @@ public class Album {
         this.imageUrl = imageUrl;
         this.artist = artist;
         this.rating = 0;
+        this.comment = "";
     }
     // method
     // static methods that read the json file in and load into Recipe
