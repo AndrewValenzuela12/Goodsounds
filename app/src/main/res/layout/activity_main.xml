@@ -38,6 +38,7 @@
         android:textColor="#000000"
         android:background="@android:color/darker_gray"
         android:visibility="visible"
+        android:focusable="false"
         android:onClick="onClickMyList"/>
 
     <EditText
@@ -64,6 +65,7 @@
         android:layout_alignEnd="@+id/homepage_myList_button"
         android:layout_marginEnd="15dp"
         android:text="Search"
+        android:focusable="false"
         android:onClick="onClickSearch"/>
 
     <ListView
