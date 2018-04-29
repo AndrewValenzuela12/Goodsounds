@@ -20,12 +20,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // name the table
     public static final String TABLE_NAME = "album_table";
     // create the column names
-    public static final String COL_1 = "ID";
-    public static final String COL_2 = "TITLE";
-    public static final String COL_3 = "ARTIST";
-    public static final String COL_4 = "URL";
-    public static final String COL_5 = "RATING";
-    public static final String COL_6 = "COMMENT";
+    public static final String COL_0 = "ID";
+    public static final String COL_1 = "TITLE";
+    public static final String COL_2 = "ARTIST";
+    public static final String COL_3 = "URL";
+    public static final String COL_4 = "RATING";
+    public static final String COL_5 = "COMMENT";
 
     // I want to save this table into a file named student.db
     // within the file, you have the table, within the table, you have the columns
@@ -63,11 +63,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // get the content values
         ContentValues cv = new ContentValues();
         // put the value into each column
-        cv.put(COL_2, title);
-        cv.put(COL_3, artist);
-        cv.put(COL_4, url);
-        cv.put(COL_5, rating);
-        cv.put(COL_6, comment);
+        cv.put(COL_1, title);
+        cv.put(COL_2, artist);
+        cv.put(COL_3, url);
+        cv.put(COL_4, rating);
+        cv.put(COL_5, comment);
 
         // call insert method
         long result = db.insert(TABLE_NAME, null, cv);
@@ -83,11 +83,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COL_2, title);
-        cv.put(COL_3, artist);
-        cv.put(COL_4, url);
-        cv.put(COL_5, rating);
-        cv.put(COL_6, comment);
+        cv.put(COL_1, title);
+        cv.put(COL_2, artist);
+        cv.put(COL_3, url);
+        cv.put(COL_4, rating);
+        cv.put(COL_5, comment);
 
         db.update(TABLE_NAME, cv, "ID = ?", new String[]{id});
         return true;

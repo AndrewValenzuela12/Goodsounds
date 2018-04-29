@@ -30,10 +30,11 @@ public class MyListActivity extends AppCompatActivity {
         ArrayList<Album> myAlbums = myDb.getAllObjects();
         // need to pull data from database and add Album objects into arraylist
 
+//
         Album dummy = new Album("hello", "https://lastfm-img2.akamaized.net/i/u/34s/eec47022dcb746e290fed001b30cceff.png", "lalala");
         dummy.rating = 4;
         dummy.comment = "this is my comment";
-
+//
         myAlbums.add(dummy);
 
 
