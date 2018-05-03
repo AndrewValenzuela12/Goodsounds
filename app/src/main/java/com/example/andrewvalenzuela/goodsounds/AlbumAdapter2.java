@@ -77,7 +77,7 @@ public class AlbumAdapter2 extends BaseAdapter {
             holder.artistTextView = convertView.findViewById(R.id.artist_list_title);
             holder.ratedRatingBar = convertView.findViewById(R.id.listratingBar);
             holder.shareButton = convertView.findViewById(R.id.shareButton);
-
+            holder.deleteButton = convertView.findViewById(R.id.deleteButton);
             //add the holder to the view
             convertView.setTag(holder);
         } else {
@@ -90,7 +90,7 @@ public class AlbumAdapter2 extends BaseAdapter {
         TextView artistTextView = holder.artistTextView;
         RatingBar ratedRatingBar = holder.ratedRatingBar;
         Button shareButton = holder.shareButton;
-
+        Button deleteButton = holder.deleteButton;
         //get corresponding recipe for each row
         final Album album = (Album)getItem(position);
 
@@ -110,7 +110,23 @@ public class AlbumAdapter2 extends BaseAdapter {
             }
         });
 
+        deleteButton.setTag(position);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                int positionToRemove = (int)v.getTag(); //get the position of the view to delete stored in the tag
+                removeItem(positionToRemove);
+                notifyDataSetChanged(); //remove the item
+            }
+        });
+
         return convertView;
+    }
+
+    public void removeItem(int position){
+        myAlbumList.remove(position);
+        notifyDataSetChanged(); //refresh your listview based on new data
+
     }
 
     // viewholder
@@ -123,6 +139,7 @@ public class AlbumAdapter2 extends BaseAdapter {
         public TextView artistTextView;
         public RatingBar ratedRatingBar;
         public Button shareButton;
+        public Button deleteButton;
     }
 
 

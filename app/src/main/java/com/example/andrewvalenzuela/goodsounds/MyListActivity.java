@@ -83,8 +83,8 @@ public class MyListActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 ) {
-            if (resultCode == RESULT_OK) {
+
+        if (requestCode == 1 && resultCode == RESULT_OK) {
                 int position = data.getIntExtra("position", 0);
                 Album changedAlbum = myAlbums.get(position);
                 changedAlbum.rating = data.getIntExtra("new_rating", 0);
@@ -92,7 +92,6 @@ public class MyListActivity extends AppCompatActivity {
                 myAlbums.set(position, changedAlbum);
                 myAlbums = myDb.getAllObjects();
                 ((BaseAdapter) mFinalListView.getAdapter()).notifyDataSetChanged();
-            }
         }
     }
 
