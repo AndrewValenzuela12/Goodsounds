@@ -43,8 +43,6 @@ public class RandomAlbumActivity extends AppCompatActivity {
         album_url = this.getIntent().getExtras().getString("album_url");
         album_similar = this.getIntent().getExtras().getString("similar");
 
-        Picasso.with(myContext).load(album_url).into(myAlbumImage);
-
         if (album_url.isEmpty()) {
             myAlbumImage.setImageResource(R.drawable.ic_launcher_background);
         } else {
