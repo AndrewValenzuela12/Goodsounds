@@ -39,7 +39,7 @@
             android:textColor="@android:color/darker_gray"
             android:textAlignment="center"
             android:textStyle="italic"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
 
         <TextView
             android:id="@+id/search_artist_list_title"
