@@ -94,7 +94,11 @@ public class AlbumAdapter extends BaseAdapter {
 
         //use Picasso library to load image from the image url;
         //if statement look at the load method
-        Picasso.with(myContext).load(album.imageUrl).into(thumbnailImageView);
+        if (album.imageUrl.isEmpty()) {
+            thumbnailImageView.setImageResource(R.drawable.ic_launcher_background);
+        } else {
+            Picasso.with(myContext).load(album.imageUrl).into(thumbnailImageView);
+        }
 
         return convertView;
     }

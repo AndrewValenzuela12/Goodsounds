@@ -65,7 +65,12 @@ public class AlbumDetailActivity extends AppCompatActivity {
 
         myAddButton.setText(btn_name);
 
-        Picasso.with(myContext).load(album_url).into(myImageView);
+        if (album_url.isEmpty()) {
+            myImageView.setImageResource(R.drawable.ic_launcher_background);
+        } else {
+            Picasso.with(myContext).load(album_url).into(myImageView);
+        }
+
         myTitleTextView.setText(album_title);
         myArtistTextView.setText(album_artist);
         myRatingBar.setRating(album_rating);
