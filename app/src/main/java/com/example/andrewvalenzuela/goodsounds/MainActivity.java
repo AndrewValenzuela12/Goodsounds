@@ -168,6 +168,11 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         //mShakeTextView.setText("Response: " + albumList.toString());
+
+                        if (array.length() == 0) {
+                            Toast.makeText(MainActivity.this, "No result with that keyword :(", Toast.LENGTH_SHORT).show();
+                        }
+
                         albumList.clear();
                         albumList.addAll(Album.getAlbumList(array, mContext));
 
