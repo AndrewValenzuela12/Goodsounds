@@ -46,19 +46,6 @@
         android:textStyle="italic"
         android:text="Artist Name" />
 
-    <!--<TextView-->
-    <!--android:id="@+id/suggested_Tags"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_below="@+id/suggested_ArtistName"-->
-    <!--android:layout_centerHorizontal="true"-->
-    <!--android:layout_marginTop="10dp"-->
-    <!--android:textSize="15sp"-->
-    <!--android:textColor="@android:color/darker_gray"-->
-    <!--android:textAlignment="center"-->
-    <!--android:textStyle="italic"-->
-    <!--android:text="Tags" />-->
-
     <TextView
         android:id="@+id/SimilarArtists"
         android:layout_width="wrap_content"

@@ -71,8 +71,8 @@
     <ListView
         android:id="@+id/search_list_view"
         android:layout_width="match_parent"
-        android:layout_height="430dp"
+        android:layout_height="430sp"
         android:layout_alignStart="@id/searchEditText"
         android:layout_below="@+id/searchEditText"
-        android:layout_marginTop="0dp" />
+         />
 </RelativeLayout>
