@@ -267,18 +267,34 @@ public class MainActivity extends AppCompatActivity {
                         }catch(JSONException ex){
                             ex.printStackTrace();
                         }
-                        for (int i = 0; i < 3; i++) {
 
-                            try {
-                                similarArtistsArray.add(artistArray.getJSONObject(i).getString("name"));
-                            } catch(JSONException ex){
-                                ex.printStackTrace();
+                        if (artistArray == null) {
+                            fetchRandomArtist();
+                        } else {
+                            ArrayList<JSONObject> temp_array = new ArrayList<>();
+
+                            for (int i = 0; i < 3; i++) {
+
+                                try {
+                                    temp_array.add(artistArray.getJSONObject(i));
+                                    //similarArtistsArray.add(artistArray.getJSONObject(i).getString("name"));
+                                } catch(JSONException ex){
+                                    ex.printStackTrace();
+                                }
                             }
-                        }
-                        randomSimilarArtists = android.text.TextUtils.join(", ", similarArtistsArray);
-                        //mShakeTextView.setText(randomSimilarArtists);
-                        fetchRandomAlbum(artist_mbid);
 
+                            for (int i = 0; i < 3; i++) {
+                                try {
+                                    //temp_array.add(artistArray.getJSONObject(i));
+                                    similarArtistsArray.add(temp_array.get(i).getString("name"));
+                                } catch(JSONException ex){
+                                    ex.printStackTrace();
+                                }
+                            }
+                            randomSimilarArtists = android.text.TextUtils.join(", ", similarArtistsArray);
+                            //mShakeTextView.setText(randomSimilarArtists);
+                            fetchRandomAlbum(artist_mbid);
+                        }
                     }
                 }, new Response.ErrorListener() {
 
