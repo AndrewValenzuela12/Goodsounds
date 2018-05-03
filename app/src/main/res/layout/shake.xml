@@ -15,7 +15,7 @@
         android:layout_height="200dp"
         android:layout_below="@+id/imageView2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="32dp"
         android:scaleType="fitXY"
         android:visibility="visible"
         app:srcCompat="@mipmap/ic_launcher" />
@@ -65,12 +65,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/suggested_ArtistName"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        android:textSize="12sp"
-        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="47dp"
+        android:text="Similar Artists"
         android:textAlignment="center"
-        android:textStyle="italic"
-        android:text="Similar Artists" />
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/suggested_SimilarArtists"
@@ -81,8 +81,8 @@
         android:layout_marginTop="3dp"
         android:textSize="18sp"
         android:textColor="@android:color/darker_gray"
-        android:textAlignment="center"
         android:textStyle="italic"
+        android:textAlignment="center"
         android:text="List Similar Artists Here" />
 
     <ImageView
@@ -96,5 +96,17 @@
         android:background="#383F51"
         android:onClick="onClickExit"
         app:srcCompat="@android:drawable/btn_dialog" />
+
+    <TextView
+        android:id="@+id/goodsoundstext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:textSize="11sp"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="italic"
+        android:text="Go back and shake again for more Goodsounds!" />
 
 </RelativeLayout>
