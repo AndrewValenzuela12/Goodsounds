@@ -137,9 +137,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onClickSearch(View view) {
-        mShakeTextView.setText("Searching...");
-        fetchResults(mSearchEditText.getText().toString());
-
+        if (mSearchEditText.getText().toString().isEmpty()) {
+            Toast.makeText(MainActivity.this, "Please, actually search something >:(", Toast.LENGTH_SHORT).show();
+        } else {
+            mShakeTextView.setText("Searching...");
+            fetchResults(mSearchEditText.getText().toString());
+        }
     }
 
     public void fetchResults(String keyword) {
