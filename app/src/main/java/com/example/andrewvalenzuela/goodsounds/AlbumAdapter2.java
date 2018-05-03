@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.ContactsContract;
 import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,13 +31,14 @@ public class AlbumAdapter2 extends BaseAdapter {
     private Context myContext;
     private ArrayList<Album> myAlbumList;
     private LayoutInflater myInflater;
-
+    private DatabaseHelper myDb;
     //constructor
     public AlbumAdapter2(Context myContext, ArrayList<Album> myAlbumList) {
         //initialize instance variable
         this.myContext = myContext;
         this.myAlbumList = myAlbumList;
         this.myInflater = (LayoutInflater) myContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.myDb = new DatabaseHelper(myContext);
     }
 
     //methods
@@ -116,6 +118,7 @@ public class AlbumAdapter2 extends BaseAdapter {
             {
                 int positionToRemove = (int)v.getTag(); //get the position of the view to delete stored in the tag
                 removeItem(positionToRemove);
+                myDb.deleteData(album.id);
                 notifyDataSetChanged(); //remove the item
             }
         });
